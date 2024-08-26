@@ -1,14 +1,16 @@
 <!doctype html>
-<html lang="en">
+<html>
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<meta name="description" content="Presentation slides for FOSS4G:UK Local, November 2022">
+		<meta name="author" content="Dr John A Stevenson">
 
-		<title>reveal.js</title>
+		<title>RSECon24: SQLite for Scientists</title>
 
 		<link rel="stylesheet" href="dist/reset.css">
 		<link rel="stylesheet" href="dist/reveal.css">
-		<link rel="stylesheet" href="dist/theme/black.css">
+		<link rel="stylesheet" href="dist/theme/bgs.css">
 
 		<!-- Theme used for syntax highlighted code -->
 		<link rel="stylesheet" href="plugin/highlight/monokai.css">
@@ -16,9 +18,36 @@
 	<body>
 		<div class="reveal">
 			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
-			</div>
+
+
+<section>
+	<section>
+		<h2>SQLite for Scientists</h2>
+		<p>
+		<span class="small"><a href="https://www.bgs.ac.uk/people/stevenson-john/">Dr John A Stevenson</a> / <a href="https://fosstodon.org/@volcan01010">@volcan01010@fosstodon.org</a></span>
+		</p>
+		<a href="https://www.bgs.ac.uk"><img src="images/BGS-Logo-Pos-RGB.svg" width=300 style="background:white; border:15px solid white; box-shadow:none;"></a>
+		<aside data-markdown class="notes">
+			I am the Research Software Engineering Capability Lead at the British Geologial Survey.
+			In the RSE spectrum, I began at 100% "writes papers", went all the way to 100% "writes code"
+			and now sit at about 95% "writes code".
+		</aside>
+	</section>
+</section>
+
+
+</section>
+<section>
+	<section>
+		<h3>Thank you</h3>
+		<aside data-markdown class="notes">
+			Thank you.
+		</aside>
+	</section>
+</section>
+
+
+	</div>
 		</div>
 
 		<script src="dist/reveal.js"></script>
@@ -31,6 +60,8 @@
 			// - https://revealjs.com/config/
 			Reveal.initialize({
 				hash: true,
+				width: 1152,
+				height: 840,
 
 				// Learn about plugins: https://revealjs.com/plugins/
 				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
