@@ -35,7 +35,7 @@
 	</section>
 	<section>
 		<h3>Follow along on GitHub</h3>
-		<img class="stretch" src="images/qr_code.svg">
+		<img class="r-stretch" src="images/qr_code.svg">
 		<p>
 		<a href="https://github.com/volcan01010/RSECon24">https://github.com/volcan01010/RSECon24</a>
 	    </p>
@@ -48,6 +48,24 @@
 
 <section>
 	<section>
+		<h3>Databases are everywhere</h3>
+		<img class="r-stretch" src="images/switch_website.png">
+		<aside data-markdown class="notes">
+			Databases power websites
+			https://uk.webuy.com/search?stext=nintendo+switch&availability=In+Stock+Online&categoryFriendlyName=Switch+Consoles&sellPrice=:200&Condition=Unboxed~Discounted&Model+Name=Switch
+		</aside>
+	</section>
+	<section>
+		<h3>Excel is not a database</h3>
+		<img class="r-stretch" src="images/excel_gene_renaming.png">
+		<aside data-markdown class="notes">
+			https://theconversation.com/excel-autocorrect-errors-still-plague-genetic-research-raising-concerns-over-scientific-rigour-166554
+			Data integrity
+			Mix formatting with content
+			Difficult to read programmatically
+		</aside>
+	</section>
+	<section>
 		<h2>SQLite</h2>
 		<img class="center" src="images/sqlite370_banner.gif">
 		<aside data-markdown class="notes">
@@ -57,15 +75,39 @@
 		</aside>
 	</section>
 	<section>
-		<h3>Databases power websites</h3>
-		<img class="center" src="images/switch_website.png">
-		<aside data-markdown class="notes">
-			Databases power websites
-			https://uk.webuy.com/search?stext=nintendo+switch&availability=In+Stock+Online&categoryFriendlyName=Switch+Consoles&sellPrice=:200&Condition=Unboxed~Discounted&Model+Name=Switch
-		</aside>
-	</section>
-	<section>
-		<h3>Relational databases store tables</h3>
+		<h3>Comparison with PostgreSQL</h3>
+		<table>
+			<thead><tr>
+				<th></th>
+				<th><img src="images/sqlite370_banner.gif" height=90></th>
+				<th><img src="images/PostgreSQL_logo.3colors.svg" height=90></th>
+			</thead></tr>
+			<tr>
+				<td>SQL language</td>
+				<td>Yes</td>
+				<td>Yes</td>
+			</tr>
+			<tr>
+				<td>Storage</td>
+				<td>Local</td>
+				<td>Network</td>
+			</tr>
+			<tr>
+				<td>Enforced types</td>
+				<td>No</td>
+				<td>Yes</td>
+			</tr>
+			<tr>
+				<td>Concurrent edits</td>
+				<td>No</td>
+				<td>Yes</td>
+			</tr>
+			<tr>
+				<td>User functions</td>
+				<td>No</td>
+				<td>Yes</td>
+			</tr>
+		</table>
 		<aside data-markdown class="notes">
 			SQL language,
 			Constraints and data types
@@ -78,18 +120,8 @@
 		</aside>
 	</section>
 	<section>
-		<h3>Excel is not a database</h3>
-		<img class="stretch" src="images/excel_gene_renaming.png">
-		<aside data-markdown class="notes">
-			https://theconversation.com/excel-autocorrect-errors-still-plague-genetic-research-raising-concerns-over-scientific-rigour-166554
-			Data integrity
-			Mix formatting with content
-			Difficult to read programmatically
-		</aside>
-	</section>
-	<section>
 		<h3>DB Browser for SQLite</h3>
-		<video controls src="images/db_browser_tour.mp4" type="video/mp4"></video>
+		<video class="r-stretch" controls src="images/db_browser_tour.mp4" type="video/mp4"></video>
 		<aside data-markdown class="notes">
 		Fully-featured, open-source GUI front-end for SQLite.
 		</aside>
@@ -105,35 +137,35 @@
 	</section>
 	<section>
 		<h3>SELECT extracts data</h3>
-		<img class="stretch" src="images/volcano_01_select.png">
+		<img class="r-stretch" src="images/volcano_01_select.png">
 		<aside data-markdown class="notes">
 			-
 		</aside>
 	</section>
 	<section>
 		<h3>Filters and sorting</h3>
-		<img class="stretch" src="images/volcano_02_filter.png">
+		<img class="r-stretch" src="images/volcano_02_filter.png">
 		<aside data-markdown class="notes">
 			-
 		</aside>
 	</section>
 	<section>
 		<h3>JOIN combines tables</h3>
-		<img class="stretch" src="images/volcano_03_join.png">
+		<img class="r-stretch" src="images/volcano_03_join.png">
 		<aside data-markdown class="notes">
 			-
 		</aside>
 	</section>
 	<section>
 		<h3>GROUP BY aggregates values</h3>
-		<img class="stretch" src="images/volcano_04_group_by.png">
+		<img class="r-stretch" src="images/volcano_04_group_by.png">
 		<aside data-markdown class="notes">
 			-
 		</aside>
 	</section>
 	<section>
 		<h3>VIEWs store pre-calculated queries</h3>
-		<img class="stretch" src="images/volcano_05_view.png">
+		<img class="r-stretch" src="images/volcano_05_view.png">
 		<aside data-markdown class="notes">
 			-
 		</aside>
@@ -149,57 +181,101 @@
 	</section>
 	<section>
 		<h3>QGIS has nice forms...</h3>
-		<video controls src="images/qgis_widgets_h264.mp4" type="video/mp4"></video>
+		<video class="r-stretch" controls src="images/qgis_widgets_h264.mp4" type="video/mp4"></video>
 		<aside data-markdown class="notes">
 			-
 		</aside>
 	</section>
 	<section>
 		<h3>...and understands relationships...</h3>
-		<img class="stretch" src="images/hekla_tables_create.png">
-		<img class="stretch" src="images/hekla_relation_widget.png">
+		<img class="r-stretch" src="images/hekla_tables_create.png">
+		<img class="r-stretch" src="images/hekla_relation_widget.png">
 		<aside data-markdown class="notes">
 			-
 		</aside>
 	</section>
 	<section>
 		<h3>...to give an efficient interface</h3>
-		<video controls src="images/photo_form_demo.mp4" type="video/mp4"></video>
+		<video class="r-stretch" controls src="images/photo_form_demo.mp4" type="video/mp4"></video>
 		<aside data-markdown class="notes">
 			-
 		</aside>
 	</section>
 	<section>
 		<h3>Datasette publishes data to the web...</h3>
-		<img class="stretch" src="images/datasette_landing_page.png">
+		<img class="r-stretch" src="images/datasette_landing_page.png">
 		<aside data-markdown class="notes">
 			-
 		</aside>
 	</section>
 	<section>
 		<h3>...with sorting, filters and queries...</h3>
-		<img class="stretch" src="images/datasette_web_query.png">
+		<img class="r-stretch" src="images/datasette_web_query.png">
 		<aside data-markdown class="notes">
 			-
 		</aside>
 	</section>
 	<section>
-		<h3>...with an API for JSON and CSV</h3>
-		<img class="stretch" src="images/datasette_json_query.png">
+		<h3>...and an API for JSON and CSV</h3>
+		<img class="r-stretch" src="images/datasette_json_query.png">
 		<aside data-markdown class="notes">
 			-
 		</aside>
 	</section>
 	<section>
 		<h3>ETL Helper simplifies data access...</h3>
+		<img class="r-stretch" src="images/etlhelper_pypi.png">
 		<aside data-markdown class="notes">
 			Python has sqlite3 in standard library
 			Pandas can read/write from SQL tables via SQLAlchemy library
 		</aside>
 	</section>
-	<section>
+	<section data-auto-animate>
 		<h3>...and provides easy data pipelines</h3>
-		<img class="stretch" src="images/etlhelper_create_volcano_db.png">
+		<pre data-id="code-animation" class="r-stretch">
+			<code class="hljs python" data-line-numbers="4-11|14-29|32-39">
+...
+
+CREATE_COUNTRY_SQL = """
+    CREATE TABLE country (
+        name TEXT,
+        slug TEXT PRIMARY KEY,
+        population INTEGER,
+        ranking INTEGER,
+        region TEXT
+    );"""
+
+
+def create_volcano_db():
+    with sqlite3.connect(DB_FILE) as conn:
+        etl.execute(CREATE_VOLCANO_SQL, conn)
+        etl.execute(CREATE_COUNTRY_SQL, conn)
+        etl.execute(CREATE_VIEW_SQL, conn)
+
+        with open(VOLCANO_CSV, "rt") as f:
+            next(f)  # Skip header
+            next(f)  # Skip header
+            reader = csv.DictReader(f)
+            etl.load('volcano', conn, reader, transform=_transform_volcano)
+
+        with open(COUNTRIES_CSV, "rt") as f:
+            next(f)  # Skip header
+            reader = csv.DictReader(f)
+            etl.load('country', conn, reader, transform=_transform_country)
+
+
+def _transform_country(chunk):
+    """
+    Drop empty data_of_information column, rename population and cast to int.
+    """
+    for row in chunk:
+        row['population'] = int(row.pop('value').replace(',', ''))
+        row.pop("date_of_information")
+        yield row
+
+...
+		    </code>
+		</pre>
 		<aside data-markdown class="notes">
 			-
 		</aside>
@@ -222,6 +298,7 @@
 		+ QGIS: [https://qgis.org/](https://qgis.org/)
 		+ Datasette: [https://datasette.io/](https://datasette.io/)
 		+ ETL Helper: [https://pypi.org/project/etlhelper/](https://pypi.org/project/etlhelper/)
+		+ Reveal.js: [https://revealjs.com](https://revealjs.com)
 
 		</textarea>
 		<aside data-markdown class="notes">
