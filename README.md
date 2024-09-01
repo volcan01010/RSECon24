@@ -9,3 +9,9 @@ Press s to activate Speaker View, which will also display additional speaker not
 You can download a version suitable for printing at https://volcan01010.github.io/RSECon24/index.html?print-pdf
 
 Clone repository and view docs/index.html in browser to work on locally. An internet connection is necessary to view some images, which are served via external links.
+
+Videos were created with Microsoft Snipping tool, but compressed significantly via the following FFMPEG command:
+
+```bash
+ffmpeg -i original.mp4 -vcodec libx264 -crf 24 small.mp4
+```

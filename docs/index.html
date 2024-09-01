@@ -48,10 +48,20 @@
 
 <section>
 	<section>
-		<h2>Databases and SQLite</h2>
+		<h2>SQLite</h2>
 		<img class="center" src="images/sqlite370_banner.gif">
 		<aside data-markdown class="notes">
-			Thank you.
+			+ Like more than 2 m from a rat isn't true, but you are never far
+			  from a SQLite database - over 1 trillion have been deployed
+			+ In every smart phone
+		</aside>
+	</section>
+	<section>
+		<h3>Databases power websites</h3>
+		<img class="center" src="images/switch_website.png">
+		<aside data-markdown class="notes">
+			Databases power websites
+			https://uk.webuy.com/search?stext=nintendo+switch&availability=In+Stock+Online&categoryFriendlyName=Switch+Consoles&sellPrice=:200&Condition=Unboxed~Discounted&Model+Name=Switch
 		</aside>
 	</section>
 	<section>
@@ -61,6 +71,9 @@
 			Constraints and data types
 			Calculations and queries
 			Normally in the backend
+			Single file
+			Types aren't enforced
+			Use PostgreSQL if you need concurrent edits
 			Access / LibreOffice Base are desktop tools
 		</aside>
 	</section>
@@ -75,18 +88,10 @@
 		</aside>
 	</section>
 	<section>
-		<h3>Introducing SQLite</h3>
-		<aside data-markdown class="notes">
-			Single file
-			Billions of deployments
-			Types aren't enforced
-			Use PostgreSQL if you need concurrent edits
-		</aside>
-	</section>
-	<section>
 		<h3>DB Browser for SQLite</h3>
+		<video controls src="images/db_browser_tour.mp4" type="video/mp4"></video>
 		<aside data-markdown class="notes">
-		https://sqlitebrowser.org/
+		Fully-featured, open-source GUI front-end for SQLite.
 		</aside>
 	</section>
 </section>
@@ -139,12 +144,12 @@
 	<section>
 		<h2>Useful tools</h2>
 		<aside data-markdown class="notes">
-			Thank you.
+			-
 		</aside>
 	</section>
 	<section>
 		<h3>QGIS has nice forms...</h3>
-		<img class="stretch" src="images/hekla_photo_widget.png">
+		<video controls src="images/qgis_widgets_h264.mp4" type="video/mp4"></video>
 		<aside data-markdown class="notes">
 			-
 		</aside>
@@ -152,12 +157,6 @@
 	<section>
 		<h3>...and understands relationships...</h3>
 		<img class="stretch" src="images/hekla_tables_create.png">
-		<aside data-markdown class="notes">
-			-
-		</aside>
-	</section>
-	<section>
-		<h3>...and understands relationships...</h3>
 		<img class="stretch" src="images/hekla_relation_widget.png">
 		<aside data-markdown class="notes">
 			-
@@ -200,6 +199,7 @@
 	</section>
 	<section>
 		<h3>...and provides easy data pipelines</h3>
+		<img class="stretch" src="images/etlhelper_create_volcano_db.png">
 		<aside data-markdown class="notes">
 			-
 		</aside>
