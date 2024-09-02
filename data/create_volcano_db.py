@@ -1,5 +1,5 @@
 """
-Create volcano.db and load data from CSV files
+Create volcano.db then load data from CSV files
 """
 import csv
 from pathlib import Path

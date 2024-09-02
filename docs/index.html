@@ -53,30 +53,42 @@
 
 <section>
 	<section>
-		<h3>Databases are everywhere</h3>
+		<h2>Databases and SQLite</h2>
+		<aside data-markdown class="notes">
+		</aside>
+	</section>
+	<section>
+		<h3>Databases power applications</h3>
 		<img class="r-stretch" src="images/switch_website.png">
 		<aside data-markdown class="notes">
-			Databases power websites
-			https://uk.webuy.com/search?stext=nintendo+switch&availability=In+Stock+Online&categoryFriendlyName=Switch+Consoles&sellPrice=:200&Condition=Unboxed~Discounted&Model+Name=Switch
+			+ At their simplest, databases are places to store tables of data for fast retrieval.
+			+ All computer scientists taught about them.
+			+ They are back-end technology, so are less obvious to others.
+			+ https://uk.webuy.com/search?stext=nintendo+switch&availability=In+Stock+Online&categoryFriendlyName=Switch+Consoles&sellPrice=:200&Condition=Unboxed~Discounted&Model+Name=Switch
 		</aside>
 	</section>
 	<section>
 		<h3>Excel is not a database</h3>
 		<img class="r-stretch" src="images/excel_gene_renaming.png">
 		<aside data-markdown class="notes">
+			Convenient interface to edit tables BUT
+			+ Mixes formatting with content
+			+ Code is hidden
+			+ Sorting defaults to individual column
+			+ Auto-complete changes data
 			https://theconversation.com/excel-autocorrect-errors-still-plague-genetic-research-raising-concerns-over-scientific-rigour-166554
-			Data integrity
-			Mix formatting with content
-			Difficult to read programmatically
 		</aside>
 	</section>
-	<section>
-		<h2>SQLite</h2>
-		<img class="center" src="images/sqlite370_banner.gif">
+	<section data-background-image="images/crowd_james_cridland.jpg" data-background-opacity=0.2>
+		<h3>The most popular database in the world is</h3>
+		<img class="center" src="images/SQLite370.svg", height="350">
 		<aside data-markdown class="notes">
+			+ Hands up who has heard of SQLite before today?
 			+ Like more than 2 m from a rat isn't true, but you are never far
 			  from a SQLite database - over 1 trillion have been deployed
 			+ In every smart phone
+            + "Crowd" by James Cridland is licensed under CC BY 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/2.0/?ref=openverse.
+			+ Similar local file to MS Access or LibreOffice base, but still a backend technology without GUI
 		</aside>
 	</section>
 	<section>
@@ -84,7 +96,7 @@
 		<table>
 			<thead><tr>
 				<th></th>
-				<th><img src="images/sqlite370_banner.gif" height=90></th>
+				<th><img src="images/SQLite370.svg" height=90></th>
 				<th><img src="images/PostgreSQL_logo.3colors.svg" height=90></th>
 			</thead></tr>
 			<tr>
@@ -98,12 +110,12 @@
 				<td>Network</td>
 			</tr>
 			<tr>
-				<td>Enforced types</td>
+				<td>Concurrent edits</td>
 				<td>No</td>
 				<td>Yes</td>
 			</tr>
 			<tr>
-				<td>Concurrent edits</td>
+				<td>Enforced types</td>
 				<td>No</td>
 				<td>Yes</td>
 			</tr>
@@ -137,7 +149,9 @@
 	<section>
 		<h2>Introduction to SQL</h2>
 		<aside data-markdown class="notes">
-			Thank you.
+			SQL stands for structured query language.
+			Originally from 70s, but developed a standard in 1980s.
+			It is used to query relational database management systems.
 		</aside>
 	</section>
 	<section>
@@ -193,7 +207,32 @@
 	</section>
 	<section>
 		<h3>...and understands relationships...</h3>
-		<img class="r-stretch" src="images/hekla_tables_create.png">
+		<pre data-id="code-animation">
+			<code class="hljs sql" data-line-numbers="2,5|10,12,16">
+CREATE TABLE "H3H4_in_soil" (
+	"fid" INTEGER PRIMARY KEY AUTOINCREMENT,
+	"geometry" POINT,
+	"locality" TEXT UNIQUE NOT NULL,
+	"thickness" REAL,
+	"notes" TEXT
+);
+
+CREATE TABLE "photos" (
+	"fid" INTEGER PRIMARY KEY AUTOINCREMENT,
+	"locality_id" TEXT,
+	"file_path" TEXT,
+	"notebook" BOOLEAN,
+	"notes" TEXT,
+	FOREIGN KEY("locality_id") REFERENCES "H3H4_in_soil"("locality")
+);
+		    </code>
+		</pre>
+		<aside data-markdown class="notes">
+			-
+		</aside>
+	</section>
+	<section>
+		<h3>...and understands relationships...</h3>
 		<img class="r-stretch" src="images/hekla_relation_widget.png">
 		<aside data-markdown class="notes">
 			-
@@ -304,6 +343,7 @@ def _transform_country(chunk):
 		+ Datasette: [https://datasette.io/](https://datasette.io/)
 		+ ETL Helper: [https://pypi.org/project/etlhelper/](https://pypi.org/project/etlhelper/)
 		+ Reveal.js: [https://revealjs.com](https://revealjs.com)
+		+ Segno (QR codes): [https://pypi.org/project/segno/](https://pypi.org/project/segno/)
 
 		</textarea>
 		<aside data-markdown class="notes">
