@@ -129,6 +129,11 @@
 				<td>Network</td>
 			</tr>
 			<tr>
+				<td>JSON parsing</td>
+				<td>Yes</td>
+				<td>Yes</td>
+			</tr>
+			<tr>
 				<td>Concurrent edits</td>
 				<td>No</td>
 				<td>Yes</td>
@@ -149,6 +154,8 @@
 			+ Like "full-fat" databases such as Oracle and MS-SQL is is based on a central server.
 			+ Server systems have transactions and lock mechanisms to handle thousands of concurrent users.
 			+ Using SQLite on a network drive is not recommended; use PostgreSQL if you need concurrent edits
+			+ Both SQLite and PostgreSQL can handle JSON, allowing unstructured data processing without
+			  NoSQL databases.
 			+ SQLite also lacks type enforcement and user-generate functions, although if you interact via
 			  code then the code can provide those.
 		</aside>
