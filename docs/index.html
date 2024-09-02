@@ -34,8 +34,16 @@
 		<a href="https://www.bgs.ac.uk"><img src="images/BGS-Logo-Pos-RGB.svg" width=300 style="background:white; border:15px solid white; box-shadow:none;"></a>
 		<aside data-markdown class="notes">
 			I am the Research Software Engineering Capability Lead at the British Geologial Survey.
-			In the RSE spectrum, I began at 100% "writes papers", went all the way to 100% "writes code"
-			and now sit at about 95% "writes code".
+			In the RSE spectrum, I began at 100% "writes papers" then increasingly used code for my science.
+			After leaving academia,  I went all the way to 100% "writes code" and now sit at about 95% "writes code".
+
+			Hands up who came from 100% papers?  Hands up for 100% code?
+
+			I noticed that 100% coders all learned about databases, but those coming from 100% papers didn't.
+			This talk is aimed at me from 15 years ago, to introduce me to the benefits.
+
+			I hope that there is something for everyone - an intro to SQL for those to whom it is new, and
+			a tour of some useful tools for those who aren't.
 		</aside>
 	</section>
 	<section>
@@ -45,7 +53,12 @@
 		<a href="https://github.com/volcan01010/RSECon24">https://github.com/volcan01010/RSECon24</a>
 	    </p>
 		<aside data-markdown class="notes">
-			Scan QR code to follow the talk
+			The slides for the talk are published to GitHub.
+			Scan QR code or follow the link if you'd like to follow along.
+
+			I wanted to do live demos, but I also wanted the talk to work for people who aren't in the room.
+			So, I have recorded videos of the main demos, but I will talk over them now.
+			It's like a karaoke version of the talk.
 		</aside>
 	</section>
 </section>
@@ -55,6 +68,10 @@
 	<section>
 		<h2>Databases and SQLite</h2>
 		<aside data-markdown class="notes">
+			+ The first part of the talk introduces databases and SQLite.
+			+ I'm specifically referring to relational database management systems e.g. the kind
+			with tables that you interact with via SQL.
+			+ I'll also demonstrate SQLite Browser software.
 		</aside>
 	</section>
 	<section>
@@ -62,33 +79,35 @@
 		<img class="r-stretch" src="images/switch_website.png">
 		<aside data-markdown class="notes">
 			+ At their simplest, databases are places to store tables of data for fast retrieval.
-			+ All computer scientists taught about them.
-			+ They are back-end technology, so are less obvious to others.
+            + You can see them in action on most websites e.g. here where I'm searching for a second-hand Nintendo Switch for under £200
 			+ https://uk.webuy.com/search?stext=nintendo+switch&availability=In+Stock+Online&categoryFriendlyName=Switch+Consoles&sellPrice=:200&Condition=Unboxed~Discounted&Model+Name=Switch
+			+ All computer scientists taught about them.
+			+ They are back-end technology and you generally interact with them via programming, so they are off the radar of non-coders.
 		</aside>
 	</section>
 	<section>
 		<h3>Excel is not a database</h3>
 		<img class="r-stretch" src="images/excel_gene_renaming.png">
 		<aside data-markdown class="notes">
-			Convenient interface to edit tables BUT
+			Instead, many researchers use Excel to handle tables of data.
+			It has a convenient interface to edit tables BUT
 			+ Mixes formatting with content
 			+ Code is hidden
 			+ Sorting defaults to individual column
 			+ Auto-complete changes data
 			https://theconversation.com/excel-autocorrect-errors-still-plague-genetic-research-raising-concerns-over-scientific-rigour-166554
+			+ Recent increase in scientists using Python / R for analysis is helping the move away from Excel
 		</aside>
 	</section>
 	<section data-background-image="images/crowd_james_cridland.jpg" data-background-opacity=0.2>
 		<h3>The most popular database in the world is</h3>
 		<img class="center" src="images/SQLite370.svg", height="350">
 		<aside data-markdown class="notes">
-			+ Hands up who has heard of SQLite before today?
-			+ Like more than 2 m from a rat isn't true, but you are never far
-			  from a SQLite database - over 1 trillion have been deployed
-			+ In every smart phone
+			+ The claim that you are never more than 2 m from a rat isn't true, but you are never far from a SQLite database - over 1 trillion have been deployed
+			+ In every smart phone, contact list, browser history, iTunes library, fitness tracker data
             + "Crowd" by James Cridland is licensed under CC BY 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/2.0/?ref=openverse.
-			+ Similar local file to MS Access or LibreOffice base, but still a backend technology without GUI
+			+ SQLite provides a standalone single file database with full access to the SQL language
+			+ Similar local file to MS Access or LibreOffice base, but still a backend technology without GUI and designed to be interoperable
 		</aside>
 	</section>
 	<section>
@@ -126,21 +145,21 @@
 			</tr>
 		</table>
 		<aside data-markdown class="notes">
-			SQL language,
-			Constraints and data types
-			Calculations and queries
-			Normally in the backend
-			Single file
-			Types aren't enforced
-			Use PostgreSQL if you need concurrent edits
-			Access / LibreOffice Base are desktop tools
+			+ PostgreSQL is a popular, open-source server-based database.
+			+ Like "full-fat" databases such as Oracle and MS-SQL is is based on a central server.
+			+ Server systems have transactions and lock mechanisms to handle thousands of concurrent users.
+			+ Using SQLite on a network drive is not recommended; use PostgreSQL if you need concurrent edits
+			+ SQLite also lacks type enforcement and user-generate functions, although if you interact via
+			  code then the code can provide those.
 		</aside>
 	</section>
 	<section>
 		<h3>DB Browser for SQLite</h3>
 		<video class="r-stretch" controls src="images/db_browser_tour.mp4" type="video/mp4"></video>
 		<aside data-markdown class="notes">
-		Fully-featured, open-source GUI front-end for SQLite.
+		  + Having said that, a GUI front end for SQLite is very useful and these have come a long way in the past decade.
+		  + I recommend DbBrowser for SQLite, which is a fully-featured, open-source GUI front-end for SQLite.
+		  + The video gives a short tour.
 		</aside>
 	</section>
 </section>
@@ -149,37 +168,71 @@
 	<section>
 		<h2>Introduction to SQL</h2>
 		<aside data-markdown class="notes">
-			SQL stands for structured query language.
-			Originally from 70s, but developed a standard in 1980s.
-			It is used to query relational database management systems.
+			+ SQL stands for structured query language.
+			+ Originally from 70s, but developed a standard in 1980s.
+			+ It is used to query relational database management systems.
+			+ Data are queried far more frequently than they are written and it is SQL that gives the RDBMSs their power.
+
+			In this section, I'll demonstrate some SQL queries.
+			I'll pause for a few seconds before showing two of them - those of you who know SQL can
+			compose a query in your head and see if you were correct.
 		</aside>
 	</section>
 	<section>
 		<h3>SELECT extracts data</h3>
 		<img class="r-stretch" src="images/volcano_01_select.png">
 		<aside data-markdown class="notes">
-			-
+			+ The following queries were run against the database used in the Db Browser
+			+ The simplest SQL query is SELECT * FROM table, which returns all the rows
+			+ This is the same as the table view in the DbBrowser tools
+
+			+ For a more complex query, I want to find out the top 10 tallest volcanoes in Iceland
+			+ I'll give you a few seconds to think about the query
 		</aside>
 	</section>
 	<section>
 		<h3>Filters and sorting</h3>
 		<img class="r-stretch" src="images/volcano_02_filter.png">
 		<aside data-markdown class="notes">
-			-
+			+ The tallest volcano is Oraefajokull, at 2010 m.
+			+ The results show that we have specified some columns, filtered with WHERE,
+			  ordered the results and limited them.
+			+ You can see that SQL is easy to understand.
+			+ You can also imagine how a similar query would power the search for
+			  a Nintendo Switch on the website
 		</aside>
 	</section>
 	<section>
 		<h3>JOIN combines tables</h3>
 		<img class="r-stretch" src="images/volcano_03_join.png">
 		<aside data-markdown class="notes">
-			-
+			+ SQL also has the concept of a JOIN, where you can combine data from different
+			  tables based on a column with shared values.
+			+ This join here uses the country name to join the volcanoes with the population data.
+			+ Now that we have volcanoes and population, we can ask which countries have the most
+			  volcanoes per person.
+			
+			+ If you know SQL, I'll give you a few seconds to think about the query.
+			+ Also, think about what the result will be and what the top 10 countries will have
+			  in common.
 		</aside>
 	</section>
 	<section>
 		<h3>GROUP BY aggregates values</h3>
 		<img class="r-stretch" src="images/volcano_04_group_by.png">
 		<aside data-markdown class="notes">
-			-
+			+ And the winner is Tonga, with one volcano per 5,000 inhabitants.
+			+ Newcastle University has 28k students - if it had the same ratio is Tonga it
+			  would also have 5 volcanoes!
+			+ All the top countries are (volcanic) island nations.
+
+			+ This query uses GROUP BY, which allows you to use aggregate functions.
+			+ COUNT and AVG operate on the groups of all rows for a given country.
+			+ Pandas has a similar concept.
+			+ We can also do calculations in the query, such as the calculation of
+			  "volcanoes_per_person"
+			+ Note that because this query was written as code we can store it in version
+			  control and re-run it easily, making the analysis reproducible.
 		</aside>
 	</section>
 	<section>
