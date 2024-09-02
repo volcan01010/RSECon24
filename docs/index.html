@@ -129,22 +129,17 @@
 				<td>Network</td>
 			</tr>
 			<tr>
-				<td>JSON parsing</td>
-				<td>Yes</td>
-				<td>Yes</td>
-			</tr>
-			<tr>
 				<td>Concurrent edits</td>
 				<td>No</td>
 				<td>Yes</td>
 			</tr>
 			<tr>
-				<td>Enforced types</td>
-				<td>No</td>
+				<td>JSON parsing</td>
+				<td>Yes</td>
 				<td>Yes</td>
 			</tr>
 			<tr>
-				<td>User functions</td>
+				<td>Enforced types</td>
 				<td>No</td>
 				<td>Yes</td>
 			</tr>
@@ -421,7 +416,7 @@ def create_volcano_db():
 
 def _transform_country(chunk):
     """
-    Drop empty data_of_information column, rename population and cast to int.
+    Drop empty date_of_information column, rename population and cast to int.
     """
     for row in chunk:
         row['population'] = int(row.pop('value').replace(',', ''))
@@ -476,7 +471,7 @@ def _transform_country(chunk):
 		+ QGIS: [https://qgis.org/](https://qgis.org/)
 		+ Datasette: [https://datasette.io/](https://datasette.io/)
 		+ ETL Helper: [https://pypi.org/project/etlhelper/](https://pypi.org/project/etlhelper/)
-		+ Reveal.js: [https://revealjs.com](https://revealjs.com)
+		+ Reveal.js (Presentation): [https://revealjs.com](https://revealjs.com)
 		+ Segno (QR codes): [https://pypi.org/project/segno/](https://pypi.org/project/segno/)
 
 		</textarea>
