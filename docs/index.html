@@ -239,7 +239,9 @@
 		<h3>VIEWs store pre-calculated queries</h3>
 		<img class="r-stretch" src="images/volcano_05_view.png">
 		<aside data-markdown class="notes">
-			-
+			+ Finally, the database allows us to create views that reuse other queries.
+			+ Now, instead of having to type the full query again, we can use
+			  SELECT * FROM volcanoes_per_person and run the query again.
 		</aside>
 	</section>
 </section>
@@ -248,14 +250,27 @@
 	<section>
 		<h2>Useful tools</h2>
 		<aside data-markdown class="notes">
-			-
+			+ In the finaly section of the talk, I want to tell you about 3 tools
+			  that I find very useful for working with SQLite.
+			+ Hopefully even people from database backgrounds will find something useful
+			  here.
+			+ The tools are QGIS for making data entry forms, Datasette for publishing
+			  data over the web and ETL Helper to simplify using databases with Python.
 		</aside>
 	</section>
 	<section>
 		<h3>QGIS has nice forms...</h3>
 		<video class="r-stretch" controls src="images/qgis_widgets_h264.mp4" type="video/mp4"></video>
 		<aside data-markdown class="notes">
-			-
+			+ QGIS stands for Quantum GIS; it is an open-source geographic information
+			  systems tool based on the Qt GUI library.
+			+ A large part of GIS is relational databases, but rows can have a geometry
+			  attached that corresponds to a point, line or location on the map.
+			+ QGIS was initially written as a front-end to PostGIS (spatial PostgreSQL) and
+			  can connect to other databases, too.
+			+ The geopackage data format, which is a replacement for shape files, is actually
+			  a SQLite database with a specific structure.
+			+ This video shows how QGIS lets you create nice forms for data entry.
 		</aside>
 	</section>
 	<section>
@@ -281,50 +296,86 @@ CREATE TABLE "photos" (
 		    </code>
 		</pre>
 		<aside data-markdown class="notes">
-			-
+			+ In this example we create two tables, one of localities and another for photos.
+			+ The locality table has a "point" geometry that can be plotted on a map.
+			+ We use a foreign key reference to link the tables.
+			+ This enforces the relationship by preventing us making an entry in the
+			  photos table that doesn't have a corresponding locality.
+			+ This is the R in RDBMS.
 		</aside>
 	</section>
 	<section>
 		<h3>...and understands relationships...</h3>
 		<img class="r-stretch" src="images/hekla_relation_widget.png">
 		<aside data-markdown class="notes">
-			-
+			+ QGIS is able to detect the relationship and offers a Relation reference
+			  widget that allows you to manage child tables (e.g. photos) from within
+			  the "parent" table (e.g. the locality table).
 		</aside>
 	</section>
 	<section>
 		<h3>...to give an efficient interface</h3>
 		<video class="r-stretch" controls src="images/photo_form_demo.mp4" type="video/mp4"></video>
 		<aside data-markdown class="notes">
-			-
+			+ This interface allows us to browse the map and see the measurements at
+			  each locality.
+			+ We can also see the photos for each locality in the same form.
 		</aside>
 	</section>
 	<section>
 		<h3>Datasette publishes data to the web...</h3>
 		<img class="r-stretch" src="images/datasette_landing_page.png">
 		<aside data-markdown class="notes">
-			-
+			+ Datasette is a tool for publishing SQLite databases online.
+			+ It spins up a web service with an HTML front-end that provides read-only
+			  access to the database.
+			+ The most powerful feature is that you can run arbitrary queries
+			  including JOINS and GROUP BY.
+			+ Here you can see the volcano.db file being served by Datasette.
 		</aside>
 	</section>
 	<section>
 		<h3>...with sorting, filters and queries...</h3>
 		<img class="r-stretch" src="images/datasette_web_query.png">
 		<aside data-markdown class="notes">
-			-
+			+ The web interface has GUI options for filtering and sorting.
+			+ The resulting query is stored within the URL, meaning that it
+			  can be shared as a link.
 		</aside>
 	</section>
 	<section>
 		<h3>...and an API for JSON and CSV</h3>
 		<img class="r-stretch" src="images/datasette_json_query.png">
 		<aside data-markdown class="notes">
-			-
+			+ The results can also be returned as JSON or CSV.
+			+ Here you can see the SELECT * FROM volcano WHERE name IS "Hekla"
+			  query.
+			+ All the data are represented in the JSON.
+			+ API access allows Datasette to act as a "glue" between different processes.
+			+ For example, we have a Python script to query vSphere for a list of VMs that
+			  is published to Datasette.  Another script queries the API for the list and
+			  uses it to generate an inventory of servers for Prometheus to target for
+			  monitoring.
 		</aside>
 	</section>
 	<section>
 		<h3>ETL Helper simplifies data access...</h3>
 		<img class="r-stretch" src="images/etlhelper_pypi.png">
 		<aside data-markdown class="notes">
-			Python has sqlite3 in standard library
-			Pandas can read/write from SQL tables via SQLAlchemy library
+			+ The final tool that I want to demonstrate is ETL Helper.
+			+ This is a library that we have written within BGS to simplify database
+			  tasks (including SQLite, Oracle, PostgreSQL) in Python scripts.  You can
+			  see the description here.
+			+ Python has sqlite3 in standard library.  There is also support in Pandas,
+			  which has pd.read_sql and pd.to_sql for reading from databases via the
+			  SQLAlchemy library.
+			+ In BGS, we have a lot of data engineering task for loading data or moving
+			  it between databases.  I always thought that they should just take a few
+			  lines of Python, but once you have factored in preparing connection strings,
+			  cursors, memory management and error handlind it ends up being much more.
+			+ ETL Helper is designed to take care of those things.
+			+ If you like it, please give it a star as it helps show the benefit of
+			  open-sourcing our code to those in management.
 		</aside>
 	</section>
 	<section data-auto-animate>
@@ -374,7 +425,26 @@ def _transform_country(chunk):
 		    </code>
 		</pre>
 		<aside data-markdown class="notes">
-			-
+			+ This is an excerpt from the script that I used to create the
+			  volcano.db file.
+			+ Initially, we have to define some constants, such as the filenames
+			  and the CREATE statements for the tables.
+			+ Next, the meat of the process is in this simple function.
+			+ After connecting to the database it uses the `exec` function to apply
+			  the CREATE statements.
+			+ Then we use the csv.DictReader from Python's standard library.  It reads
+			  the column names and creates an iterable of dictionaries with column
+			  names as keys.
+			+ The `etl.load` function generates an INSERT statement from the keys and
+			  loads the data.
+			+ We also have to apply a transformation to the data.  We have a function
+			  that takes a chunk of rows and yields them one-by-one, converting the
+			  population value, which was a text string with commas as a thousands
+			  separator into an integer and dropping a column that we don't need.
+			+ The benefit of this approach is that the data loading pipeline is stored
+			  as easy-to-read and version-control code.
+			+ The simple structure of the transform function makes it easy to write
+			  automated tests for, too.
 		</aside>
 	</section>
 </section>
@@ -383,7 +453,11 @@ def _transform_country(chunk):
 	<section>
 		<h3>Thank you</h3>
 		<aside data-markdown class="notes">
-			Thank you.
+			+ Thank you.
+			+ For those of you who are new to SQL, I hope that you have got a taste
+			  of how it can be used and are inspired to try it out.
+			+ For those who were already familiar, I hope that some of these tools
+			  will be useful additions to your toolbox.
 		</aside>
 	</section>
 	<section data-markdown>
@@ -400,7 +474,11 @@ def _transform_country(chunk):
 
 		</textarea>
 		<aside data-markdown class="notes">
-			Thank you.
+			+ I will leave you with these links to tools mentioned in the talk.
+			+ I have added Reveal.js, which I used to create the presentation and
+			  which I really like, particularly the code blocks.
+			+ I also added Segno, which is a Python library that I used to create the
+			  QR code at the start.
 		</aside>
 	</section>
 </section>
