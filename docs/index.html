@@ -6,7 +6,7 @@
 		<meta name="description" content="Presentation slides for FOSS4G:UK Local, November 2022">
 		<meta name="author" content="Dr John A Stevenson">
 
-		<title>RSECon24: SQLite for Scientists</title>
+		<title>RSECon24: SQLite for Everyone</title>
 
 		<link rel="stylesheet" href="dist/reset.css">
 		<link rel="stylesheet" href="dist/reveal.css">
@@ -27,7 +27,7 @@
 
 <section>
 	<section>
-		<h2>SQLite for Scientists</h2>
+		<h2>SQLite for <del>Scientists</del> <ins>Everyone</ins></h2>
 		<p>
 		<span class="small"><a href="https://www.bgs.ac.uk/people/stevenson-john/">Dr John A Stevenson</a> / <a href="https://fosstodon.org/@volcan01010">@volcan01010@fosstodon.org</a></span>
 		</p>
@@ -42,7 +42,10 @@
 			I noticed that 100% coders all learned about databases, but those coming from 100% papers didn't.
 			This talk is aimed at me from 15 years ago, to introduce me to the benefits.
 
-			I hope that there is something for everyone - an intro to SQL for those to whom it is new, and
+			It was originally called SQLite for Scientists, but there are humanities and industry and others at
+			the meeting, so now it is called SQLite for Everyone.
+
+			And I hope that there is something for everyone - an intro to SQL for those to whom it is new, and
 			a tour of some useful tools for those who aren't.
 		</aside>
 	</section>
@@ -70,22 +73,30 @@
 		<aside data-markdown class="notes">
 			+ The first part of the talk introduces databases and SQLite.
 			+ I'm specifically referring to relational database management systems e.g. the kind
-			with tables that you interact with via SQL.
+			  with tables that you interact with via SQL.
 			+ I'll also demonstrate SQLite Browser software.
 		</aside>
 	</section>
 	<section>
-		<h3>Databases power applications</h3>
+		<h3>Databases power many applications</h3>
 		<img class="r-stretch" src="images/switch_website.png">
 		<aside data-markdown class="notes">
 			+ At their simplest, databases are places to store tables of data for fast retrieval.
+			+ Data are read more than they are written and indexes in tables allow direct fetching of data.
             + You can see them in action on most websites e.g. here where I'm searching for a second-hand Nintendo Switch for under £200
 			+ https://uk.webuy.com/search?stext=nintendo+switch&availability=In+Stock+Online&categoryFriendlyName=Switch+Consoles&sellPrice=:200&Condition=Unboxed~Discounted&Model+Name=Switch
 			+ All computer scientists taught about them.
-			+ They are back-end technology and you generally interact with them via programming, so they are off the radar of non-coders.
+			+ However, they are back-end technology and you generally interact with them via programming, so they are off the radar of non-coders.
 		</aside>
 	</section>
 	<section>
+		<h3>Excel is not a database</h3>
+		<img class="r-stretch" src="images/excel_gene_renaming_white.png">
+		<aside data-markdown class="notes">
+			+ Hide image
+		</aside>
+	</section>
+	<section data-transition="None">
 		<h3>Excel is not a database</h3>
 		<img class="r-stretch" src="images/excel_gene_renaming.png">
 		<aside data-markdown class="notes">
@@ -151,7 +162,7 @@
 			+ Using SQLite on a network drive is not recommended; use PostgreSQL if you need concurrent edits
 			+ Both SQLite and PostgreSQL can handle JSON, allowing unstructured data processing without
 			  NoSQL databases.
-			+ SQLite also lacks type enforcement and user-generate functions, although if you interact via
+			+ SQLite also lacks type enforcement and user-generated functions, although if you interact via
 			  code then the code can provide those.
 		</aside>
 	</section>
@@ -237,15 +248,6 @@
 			  control and re-run it easily, making the analysis reproducible.
 		</aside>
 	</section>
-	<section>
-		<h3>VIEWs store pre-defined queries</h3>
-		<img class="r-stretch" src="images/volcano_05_view.png">
-		<aside data-markdown class="notes">
-			+ Finally, the database allows us to create views that reuse other queries.
-			+ Now, instead of having to type the full query again, we can use
-			  SELECT * FROM volcanoes_per_person and run the query again.
-		</aside>
-	</section>
 </section>
 
 <section>
@@ -307,18 +309,12 @@ CREATE TABLE "photos" (
 		</aside>
 	</section>
 	<section>
-		<h3>...and understands relationships...</h3>
-		<img class="r-stretch" src="images/hekla_relation_widget.png">
+		<h3>...to give an efficient interface</h3>
+		<video class="r-stretch" controls src="images/photo_form_demo.mp4" type="video/mp4"></video>
 		<aside data-markdown class="notes">
 			+ QGIS is able to detect the relationship and offers a Relation reference
 			  widget that allows you to manage child tables (e.g. photos) from within
 			  the "parent" table (e.g. the locality table).
-		</aside>
-	</section>
-	<section>
-		<h3>...to give an efficient interface</h3>
-		<video class="r-stretch" controls src="images/photo_form_demo.mp4" type="video/mp4"></video>
-		<aside data-markdown class="notes">
 			+ This interface allows us to browse the map and see the measurements at
 			  each locality.
 			+ We can also see the photos for each locality in the same form.
@@ -361,6 +357,13 @@ CREATE TABLE "photos" (
 		</aside>
 	</section>
 	<section>
+		<h3>ETL Helper simplifies data access...</h3>
+		<img class="r-stretch" src="images/etlhelper_github_white.png">
+		<aside data-markdown class="notes">
+			+ Hide image
+		</aside>
+	</section>
+	<section data-transition="None">
 		<h3>ETL Helper simplifies data access...</h3>
 		<img class="r-stretch" src="images/etlhelper_github.png">
 		<aside data-markdown class="notes">
