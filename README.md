@@ -15,3 +15,9 @@ Videos were created with Microsoft Snipping tool, but compressed significantly v
 ```bash
 ffmpeg -i original.mp4 -vcodec libx264 -crf 24 small.mp4
 ```
+
+White images to hide "r-stretch" images (which don't work with "fragment") created by:
+
+```bash
+convert image.png -fill white -colorize 100% image_white.png
+```

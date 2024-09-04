@@ -34,6 +34,11 @@
 		<a href="https://www.bgs.ac.uk"><img src="images/BGS-Logo-Pos-RGB.svg" width=300 style="background:white; border:15px solid white; box-shadow:none;"></a>
 		<aside data-markdown class="notes">
 			I am the Research Software Engineering Capability Lead at the British Geologial Survey.
+
+			This talk was originally called SQLite for Scientists as it was aimed at "past me", but
+			there are humanities and industry and others at the meeting, so now it is called SQLite for
+			Everyone.
+
 			In the RSE spectrum, I began at 100% "writes papers" then increasingly used code for my science.
 			After leaving academia,  I went all the way to 100% "writes code" and now sit at about 95% "writes code".
 
@@ -41,9 +46,6 @@
 
 			I noticed that 100% coders all learned about databases, but those coming from 100% papers didn't.
 			This talk is aimed at me from 15 years ago, to introduce me to the benefits.
-
-			It was originally called SQLite for Scientists, but there are humanities and industry and others at
-			the meeting, so now it is called SQLite for Everyone.
 
 			And I hope that there is something for everyone - an intro to SQL for those to whom it is new, and
 			a tour of some useful tools for those who aren't.
@@ -78,10 +80,11 @@
 		</aside>
 	</section>
 	<section>
-		<h3>Databases power many applications</h3>
+		<h3>Databases store data</h3>
 		<img class="r-stretch" src="images/switch_website.png">
 		<aside data-markdown class="notes">
 			+ At their simplest, databases are places to store tables of data for fast retrieval.
+			+ They have structures and constraints to ensure data integrity.
 			+ Data are read more than they are written and indexes in tables allow direct fetching of data.
             + You can see them in action on most websites e.g. here where I'm searching for a second-hand Nintendo Switch for under £200
 			+ https://uk.webuy.com/search?stext=nintendo+switch&availability=In+Stock+Online&categoryFriendlyName=Switch+Consoles&sellPrice=:200&Condition=Unboxed~Discounted&Model+Name=Switch
@@ -246,6 +249,9 @@
 			  "volcanoes_per_person"
 			+ Note that because this query was written as code we can store it in version
 			  control and re-run it easily, making the analysis reproducible.
+
+			+ This was a quick introduction to SQL queries.
+			+ For a very good, interactive, lesson Google "W3Schools SQL tutorial".
 		</aside>
 	</section>
 </section>
@@ -263,8 +269,7 @@
 		</aside>
 	</section>
 	<section>
-		<h3>QGIS has nice forms...</h3>
-		<video class="r-stretch" controls src="images/qgis_widgets_h264.mp4" type="video/mp4"></video>
+		<img height="70%" class="center" src="images/QGIS_logo_2017.svg">
 		<aside data-markdown class="notes">
 			+ QGIS stands for Quantum GIS; it is an open-source geographic information
 			  systems tool based on the Qt GUI library.
@@ -275,6 +280,26 @@
 			+ The geopackage data format, which is a replacement for shape files, is actually
 			  a SQLite database with a specific structure.
 			+ This video shows how QGIS lets you create nice forms for data entry.
+		</aside>
+	</section>
+	<section>
+		<h3>...has nice forms...</h3>
+		    <img class="r-stretch" src="images/qgis_forms_view.png">
+		<aside data-markdown class="notes">
+            + QGIS provides a drag and drop form designer with widgets different data types.
+			+ Data can then be viewed either via the table or as forms.
+			+ The ID column has been aliased and made read-only.
+			+ The text fields can have Unicode and HTML and be single or multi-line.
+			+ You can set constraints - the email has failed validation because the text
+			  doesn't match a regular expression for an email address.
+			+ You can use an Attachment widget that provides a file picker for looking up file
+			  paths and will display images inline.
+			+ Dropdown menus provide rapid selection from a list of options and can map between
+			  display text and stored values.  They can also be populated by database relations.
+			+ Booleans can have check boxes.
+			+ Numbers can be entered as text (including scientific notation) and constrained to
+			  a range.
+			+ There is a date picker for dates.  You can also set a default value of `now()`.
 		</aside>
 	</section>
 	<section>
@@ -455,22 +480,13 @@ def _transform_country(chunk):
 </section>
 
 <section>
-	<section>
-		<h3>Thank you</h3>
-		<aside data-markdown class="notes">
-			+ Thank you.
-			+ For those of you who are new to SQL, I hope that you have got a taste
-			  of how it can be used and are inspired to try it out.
-			+ For those who were already familiar, I hope that some of these tools
-			  will be useful additions to your toolbox.
-		</aside>
-	</section>
 	<section data-markdown>
 		<textarea data-template>
-		### Links
+		## Thank you
 
 		+ SQLite: [https://www.sqlite.org](https://www.sqlite.org)
 		+ DB Browser for SQLite: [https://sqlitebrowser.org/](https://sqlitebrowser.org/)
+		+ W3Schools SQL tutorial: [https://www.w3schools.com/sql/](https://www.w3schools.com/sql/)
 		+ QGIS: [https://qgis.org/](https://qgis.org/)
 		+ Datasette: [https://datasette.io/](https://datasette.io/)
 		+ ETL Helper: [https://pypi.org/project/etlhelper/](https://pypi.org/project/etlhelper/)
@@ -479,11 +495,24 @@ def _transform_country(chunk):
 
 		</textarea>
 		<aside data-markdown class="notes">
+			+ Thank you.
+			+ For those of you who are new to SQL, I hope that you have got a taste
+			  of how it can be used and are inspired to try it out.
+			+ For those who were already familiar, I hope that some of these tools
+			  will be useful additions to your toolbox.
 			+ I will leave you with these links to tools mentioned in the talk.
 			+ I have added Reveal.js, which I used to create the presentation and
 			  which I really like, particularly the code blocks.
 			+ I also added Segno, which is a Python library that I used to create the
 			  QR code at the start.
+		</aside>
+	</section>
+	<section>
+		<h3>In-depth QGIS forms video</h3>
+		<video class="r-stretch" controls src="images/qgis_widgets_h264.mp4" type="video/mp4"></video>
+		<aside data-markdown class="notes">
+			This video provides more detail on QGIS forms.
+			I left it out from the final presentation to save time.
 		</aside>
 	</section>
 </section>
