@@ -16,6 +16,8 @@ Videos were created with Microsoft Snipping tool, but compressed significantly v
 ffmpeg -i original.mp4 -vcodec libx264 -crf 24 small.mp4
 ```
 
+They are available under [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0/) licence.
+
 White images to hide "r-stretch" images (which don't work with "fragment") created by:
 
 ```bash
