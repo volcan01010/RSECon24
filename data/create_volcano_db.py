@@ -5,7 +5,7 @@ import csv
 from pathlib import Path
 import sqlite3
 
-import etlhelper as etl  # pip install etlhelper
+import etlhelper as etl  # pip install etlhelper~=1.0
 
 DB_FILE = Path("volcano.db")
 VOLCANO_CSV = Path("GVP_Volcano_List_Holocene_202408261410.csv")

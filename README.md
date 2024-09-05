@@ -4,11 +4,23 @@ Slides for "SQLite for Scientists" talk at Research Software Engineering confere
 
 The slides are rendered online at: https://volcan01010.github.io/RSECon24/index.html.
 
-Press s to activate Speaker View, which will also display additional speaker notes
+Press `s` to activate Speaker View, which will display the speaker notes so that you can see what I said for each slide.
 
 You can download a version suitable for printing at https://volcan01010.github.io/RSECon24/index.html?print-pdf
 
 Clone repository and view docs/index.html in browser to work on locally. An internet connection is necessary to view some images, which are served via external links.
+
+### Recreating the database
+
+To recreate the database to explore for yourself, run the following:
+
+```bash
+cd data
+pip install etlhelper~=1.0
+python create_volcano_db.py
+```
+
+### Useful commands
 
 Videos were created with Microsoft Snipping tool, but compressed significantly via the following FFMPEG command:
 
